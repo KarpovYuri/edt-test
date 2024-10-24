@@ -1,5 +1,5 @@
 <template>
-	<div class="flex gap-4 w-full">
+	<div class="flex gap-4 w-full pl-16">
 		<base-input
 			v-model="knot.name"
 			placeholder="Введите название узла"
@@ -16,6 +16,10 @@
 			class="w-[40px] bg-trash shrink-0"
 			@click="$emit('delete')"
 		/>
+        <base-button
+            color="purple"
+            class="w-[40px] bg-drag shrink-0"
+        />
 	</div>
 </template>
 

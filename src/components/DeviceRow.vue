@@ -12,14 +12,25 @@
 		>
 			{{ device.isEdit ? 'Сохранить' : 'Редактировать' }}
 		</base-button>
-		<base-button @click="$emit('delete')" color="red"> Удалить </base-button>
-		<base-button @click="addKnot" class="min-w-[40px]" color="slate">
-			+
+		<base-button @click="$emit('delete')" color="red" class="min-w-[96px]">
+			Удалить
 		</base-button>
+		<base-button
+			@click="addKnot"
+			class="w-[40px] bg-plus shrink-0"
+			color="slate"
+		/>
 	</div>
-	<template v-for="knot in device.knots" :key="`knot-${knot.id}`">
-		<knot-row :knot="knot" @delete="deleteKnot(knot)" />
-	</template>
+	<draggable
+		v-if="device.knots.length > 0"
+		v-model="device.knots"
+		item-key="id"
+		class="flex flex-col gap-4"
+	>
+		<template #item="{ element }">
+			<knot-row :knot="element" @delete="deleteKnot(element)" />
+		</template>
+	</draggable>
 </template>
 
 <script lang="ts">
@@ -28,10 +39,11 @@ import BaseInput from './base/BaseInput.vue'
 import BaseButton from './base/BaseButton.vue'
 import { nanoid } from 'nanoid'
 import KnotRow from './KnotRow.vue'
+import draggable from 'vuedraggable'
 
 export default defineComponent({
 	name: 'DeviceRow',
-	components: { BaseButton, BaseInput, KnotRow },
+	components: { BaseButton, BaseInput, KnotRow, draggable },
 	emits: ['delete'],
 	props: {
 		device: {

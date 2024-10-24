@@ -4,9 +4,11 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
+				plus: "url('/src/assets/icons/plus.svg')",
 				trash: "url('/src/assets/icons/trash.svg')",
 				save: "url('/src/assets/icons/save.svg')",
 				edit: "url('/src/assets/icons/edit.svg')",
+				drag: "url('/src/assets/icons/drag.svg')",
 			},
 		},
 	},
