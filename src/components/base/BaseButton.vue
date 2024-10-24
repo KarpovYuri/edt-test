@@ -1,6 +1,6 @@
 <template>
 	<button
-		class="p-2 text-white rounded-md"
+		class="p-2 text-white rounded-md bg-[length:24px_24px] bg-no-repeat bg-center"
 		:class="{
 			'bg-sky-500': color === 'sky',
 			'bg-red-500': color === 'red',

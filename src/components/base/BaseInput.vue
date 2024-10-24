@@ -1,7 +1,7 @@
 <template>
 	<input
 		v-model="text"
-		class="block text-black w-full outline-0 p-2 rounded-md"
+		class="text-black w-full outline-0 p-2 rounded-md"
 		:class="{
 			'bg-[#242424] text-white truncate': disabled,
 			'outline outline-2 outline-red-500': error,
